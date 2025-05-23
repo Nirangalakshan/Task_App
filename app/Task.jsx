@@ -96,6 +96,25 @@ const TaskListScreen = () => {
     }
   };
 
+  const confirmDelete = (task) => {
+    Alert.alert(
+      "Confirm Delete",
+      "Are you sure you want to delete this task?",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Delete",
+          onPress: () => deleteTask(task),
+          style: "destructive",
+        },
+      ],
+      { cancelable: true }
+    );
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>All Tasks</Text>
@@ -107,7 +126,7 @@ const TaskListScreen = () => {
             title={item.name}
             date={formatDate(item.date)}
             onEdit={() => openEditModal(item)}
-            onDelete={() => deleteTask(item)}
+            onDelete={() => confirmDelete(item)}
           />
         )}
       />
@@ -144,8 +163,14 @@ const TaskListScreen = () => {
 export default TaskListScreen;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20 },
-  heading: { fontSize: 22, fontWeight: "bold", marginBottom: 10 },
+  container: { flex: 1, padding: 20, backgroundColor: "#f9f9f9" },
+  heading: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 15,
+    textAlign: "center",
+    color: "#333",
+  },
   modalOverlay: {
     flex: 1,
     backgroundColor: "#000000aa",
@@ -154,28 +179,44 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     backgroundColor: "#fff",
-    padding: 20,
-    borderRadius: 12,
-    width: "80%",
+    padding: 25,
+    borderRadius: 16,
+    width: "85%",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
   },
-  modalTitle: { fontSize: 18, fontWeight: "bold", marginBottom: 10 },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 15,
+    textAlign: "center",
+  },
   input: {
     borderWidth: 1,
-    borderColor: "#aaa",
-    borderRadius: 6,
-    padding: 10,
-    marginBottom: 15,
+    borderColor: "#ddd",
+    borderRadius: 10,
+    padding: 12,
+    marginBottom: 20,
+    fontSize: 16,
   },
   buttonRow: {
     flexDirection: "row",
     justifyContent: "space-between",
   },
   button: {
-    padding: 10,
-    borderRadius: 6,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 10,
     backgroundColor: "#00adf5",
     width: "48%",
     alignItems: "center",
   },
-  buttonText: { color: "white", fontWeight: "bold" },
+  buttonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
 });
