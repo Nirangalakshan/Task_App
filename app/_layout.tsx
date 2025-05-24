@@ -32,13 +32,16 @@ const _layout = () => {
 
   return (
   
-      <GestureHandlerRootView style={{ flex: 1, paddingTop: 10 }}>
+      <GestureHandlerRootView style={{ flex: 1, paddingTop: 10, }}>
         <TaskContext.Provider value={{ tasks, setTasks, loadTasks }}>
           <Tabs>
+            
             <Tabs.Screen
               name="index"
+              
               options={{
                 title: "Home",
+                
                 tabBarIcon: () => (
                   <Entypo name="home" size={24} color="black" />
                 ),

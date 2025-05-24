@@ -1,13 +1,17 @@
 {
   "expo": {
-    "name": "daily_planer2",
+    "name": "Manage Daily Tasks",
     "slug": "daily_planer2",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
     "scheme": "dailyplaner2",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+     "splash": {
+      "image": "./assets/images/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "white"
+    },
     "ios": {
       "supportsTablet": true
     },
@@ -23,18 +27,7 @@
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-    "plugins": [
-      "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ]
-    ],
+  
     "experiments": {
       "typedRoutes": true
     }
